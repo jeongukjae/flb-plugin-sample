@@ -34,12 +34,12 @@ static int cb_stdout_filter(const void *data, size_t bytes, const char *tag,
       spdlog::error("Unexpected type: {}", deserialized.type);
       return FLB_FILTER_NOTOUCH;
     }
-    msgpack::object timestamp = deserialized.via.array.ptr[0];
+    msgpack::object timeobj = deserialized.via.array.ptr[0];
     msgpack::object record = deserialized.via.array.ptr[1];
 
     flb_time time;
-    if (flb_time_msgpack_to_time(time, timestamp) != 0) {
-      spdlog::error("Failed to parse timestamp");
+    if (flb_time_msgpack_to_time(time, timeobj) != 0) {
+      spdlog::error("Failed to parse time");
       return FLB_FILTER_NOTOUCH;
     }
 

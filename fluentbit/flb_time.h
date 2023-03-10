@@ -40,9 +40,9 @@ int flb_time_msgpack_to_time(struct flb_time &time,
                      obj.via.ext.type(), obj.via.ext.size);
         return -1;
       }
-      memcpy(&tmp, &obj.via.ext.ptr[0], 4);
+      memcpy(&tmp, obj.via.ext.data(), 4);
       time.tm.tv_sec = (uint32_t)ntohl(tmp);
-      memcpy(&tmp, &obj.via.ext.ptr[4], 4);
+      memcpy(&tmp, obj.via.ext.data() + 4, 4);
       time.tm.tv_nsec = (uint32_t)ntohl(tmp);
       break;
     default:
