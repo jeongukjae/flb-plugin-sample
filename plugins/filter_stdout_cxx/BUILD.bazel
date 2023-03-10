@@ -1,0 +1,25 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "filter_stdout_cxx_lib",
+    alwayslink = True,
+    srcs = ["stdout_cxx.cc"],
+    deps = [
+        "//fluentbit",
+        "@msgpack",
+        "@spdlog",
+    ],
+)
+
+cc_binary(
+    name = "filter_stdout_cxx_shared",
+    deps = [":filter_stdout_cxx_lib"],
+    linkshared = True,
+)
+
+genrule(
+   name = "filter_stdout_cxx",
+   srcs = [":filter_stdout_cxx_shared"],
+   outs = ["flb-filter_stdout_cxx.so"],
+   cmd = "cp $(location :filter_stdout_cxx_shared) $(location flb-filter_stdout_cxx.so)",
+)

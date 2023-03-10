@@ -1,8 +1,7 @@
 #ifndef __FLUENT_BIT_FLB_CONFIG_H__
 #define __FLUENT_BIT_FLB_CONFIG_H__
 
-// This header is simplified version of fluent bit configuration. The original
-// is in
+// This header is simplified fluent bit configuration. The original is in
 // https://github.com/fluent/fluent-bit/blob/master/include/fluent-bit/flb_config.h
 
 #include <cstdlib>

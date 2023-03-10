@@ -5,5 +5,10 @@ cc_library(
     hdrs=[
         "flb_config.h",
         "flb_filter.h",
+        "flb_time.h",
     ],
+    deps = [
+        "@msgpack",
+        "@spdlog",
+    ]
 )

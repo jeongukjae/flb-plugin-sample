@@ -2,5 +2,6 @@ filegroup(
     name = "plugins",
     srcs = [
         "//plugins/filter_hello_world",
+        "//plugins/filter_stdout_cxx",
     ]
 )

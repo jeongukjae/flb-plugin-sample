@@ -1,1 +1,19 @@
 workspace(name="flb-plugin-sample")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "msgpack",
+    strip_prefix = "msgpack-c-cpp-3.3.0",
+    sha256 = "754c3ace499a63e45b77ef4bcab4ee602c2c414f58403bce826b76ffc2f77d0b",
+    url = "https://github.com/msgpack/msgpack-c/archive/refs/tags/cpp-3.3.0.tar.gz",
+    build_file = "@//third_party:msgpack.BUILD",
+)
+
+http_archive(
+    name = "spdlog",
+    strip_prefix = "spdlog-1.11.0",
+    sha256 = "ca5cae8d6cac15dae0ec63b21d6ad3530070650f68076f3a4a862ca293a858bb",
+    url = "https://github.com/gabime/spdlog/archive/refs/tags/v1.11.0.tar.gz",
+    build_file = "@//third_party:spdlog.BUILD",
+)
