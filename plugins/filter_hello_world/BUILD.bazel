@@ -1,0 +1,21 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "filter_hello_world_lib",
+    alwayslink = True,
+    srcs = ["hello_world.cc"],
+    deps = ["//fluentbit"],
+)
+
+cc_binary(
+    name = "filter_hello_world_shared",
+    deps = [":filter_hello_world_lib"],
+    linkshared = True,
+)
+
+genrule(
+   name = "filter_hello_world",
+   srcs = [":filter_hello_world_shared"],
+   outs = ["flb-filter_hello_world.so"],
+   cmd = "cp $(location :filter_hello_world_shared) $(location flb-filter_hello_world.so)",
+)

@@ -1,0 +1,6 @@
+filegroup(
+    name = "plugins",
+    srcs = [
+        "//plugins/filter_hello_world",
+    ]
+)

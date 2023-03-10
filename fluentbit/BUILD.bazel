@@ -1,0 +1,9 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name="fluentbit",
+    hdrs=[
+        "flb_config.h",
+        "flb_filter.h",
+    ],
+)
