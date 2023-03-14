@@ -55,7 +55,7 @@ Hello, World!
 
 ## How to make the plugin loadable
 
-Specific criteria need to be met to make the plugin loadable in Fluent Bit, [as the fluent bit's documentation says](https://docs.fluentbit.io/manual/development/developer-guide#plugin-api). Firstly, the plugin must be a shared object file with a name in the format of `flb-{PLUGIN_NAME}.so`, and contain the `{PLUGIN_NAME}_plugin` symbol. This symbol should adhere to the interface of the respective plugin type.
+Specific criteria need to be met to make the plugin loadable in Fluent Bit, [as the fluent bit's documentation says](https://docs.fluentbit.io/manual/development/developer-guide#plugin-api). The plugin must be a shared object file with a name in the format of `flb-{PLUGIN_NAME}.so`, and contain the `{PLUGIN_NAME}_plugin` symbol. This symbol should adhere to the interface of the respective plugin type.
 
 In this repository, a filter plugin has been implemented, meaning that the plugin follows the filter plugin interface.
 After building the plugin in the Docker container, it is passed as a parameter to the Fluent Bit container, allowing Fluent Bit to load the plugin.
